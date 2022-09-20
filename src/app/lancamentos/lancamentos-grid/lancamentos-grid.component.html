@@ -1,0 +1,24 @@
+<p-table [value]="lancamento" styleClass="p-datatable-sm" responsiveLayout="scroll" [paginator]="true" [rows]="5" [responsive]="true">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Pessoa</th>
+          <th>Descrição</th>
+          <th class="col-data-header">Dt.Vencimento</th>
+          <th class="col-valor-header">Valor</th>
+          <th class="col-acoes">Ações</th>
+        </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-l>
+      <tr>
+          <td>{{l.pessoa|uppercase}}</td>
+          <td>{{l.descricao}}</td>
+          <td class="col-data-content" >{{l.dataVencimento|date:'dd/MM/y'}}</td>
+          <td class="col-valor-content" [ngStyle]="{color: l.tipo === 'DESPESA' ? 'red': 'blue'}">
+            {{l.valor|currency:'BRL':true:'1.2-2'}}
+          </td>
+          <td class="col-acoes-content">
+            <a pButton icon="pi pi-pencil" pTooltip="Altera Dados" tooltipPosition="top"></a>
+            <button pButton icon="pi pi-trash" pTooltip="Exclui Registro" tooltipPosition="top"></button>
+        </tr>
+  </ng-template>
+</p-table>

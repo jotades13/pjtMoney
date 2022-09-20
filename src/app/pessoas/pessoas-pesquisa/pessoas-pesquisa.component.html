@@ -1,0 +1,31 @@
+<div class="container">
+  <form #pessoaForm="ngForm">
+
+    <div class="grid">
+      <div class="col-2">
+        <h1>Pessoas</h1>
+      </div>
+     </div>
+    
+    <div class="grid">
+      <div class="col-4 p-fluid">
+        <label>NOME</label>
+        <input type="text" pInputText appCampoColorido>
+      </div>
+      <div class="col-8">
+        <button type="submit" pButton label="Pesquisa" style="margin: 18px 0px 18px 0px"></button>
+        <button type="submit" pButton label="Nova Pessoa" style="margin: 0px 0px 18px 10px"></button>
+      </div>
+    </div>
+    
+    
+    <div class="grid">
+      <div class="col-12">
+        <app-pessoas-grid [pessoa]="pessoas"></app-pessoas-grid>
+      </div>
+    </div>
+      
+  </form>
+</div>
+    
+    

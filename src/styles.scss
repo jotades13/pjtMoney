@@ -1,1 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
+
+$font-tipo: Arial, Helvetica, sans-serif;
+$font-color: #404C51 !important;
+$background-color: #cceb98 !important;
+$background-color2: #bbe9d2 !important;
+
+body{
+  //margin:0;
+  font-family: $font-tipo;
+  color : $font-color;
+  background-color: $background-color2;
+  //padding: 10px;
+}
+div.fat{
+  height: 80px; 
+  position: relative;
+  margin:auto;
+ // background-color: #afe1a1;
+  text-align: center;
+  border: 1px solid #010101; 
+}
+div.fat2{
+  height: 90px;
+  position:relative; 
+  margin:auto;
+  //background-color: #afe1a1;
+  text-align: center;
+//  border: 1px solid #fafafa; 
+}
+
+
+@media(min-width: 1200px){
+  .container{
+    width:1170px;
+    margin: 0 auto;
+  }
+}
+
+label{
+  font-weight: bold;
+  padding: 10px 5px 0px 5px ;
+}
+
+.col-valor-header{
+width: 120px;
+text-align-last: right;
+}
+.col-valor-content{
+  text-align-last: right;
+}
+
+.col-data-content{
+  width: 120px;
+  text-align-last: center;
+}
+.col-data-content{
+  text-align-last: center;
+}
+
+.col-acoes{
+  width: 120px;
+  text-align-last: center;
+}
+.col-acoes-content{
+  text-align-last: center;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1ps solid red;
+}
+
+a {
+  color:#337ab7;
+  text-decoration:underline;
+}
+a:hover, a:focus{
+  font-weight: bold;
+}

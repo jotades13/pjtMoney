@@ -1,0 +1,74 @@
+<div class="container">
+  <form>
+<!--Exemplos teste grid-->
+    <div class="grid">
+      <div class="col-4">
+        <p>Jotahemmy Silva 1<br>
+        Brasil
+        1000,00
+        Final de linha</p>
+      </div>
+      <div class="col-4" style="color:red">
+        <p>Jotahemmy Silva 2<br>
+          Brasil
+          1000,00
+          Final de linha</p>
+        </div>
+    </div>
+    
+
+    
+    <div class="grid">
+      <div class="col-12">
+        <h1>Nova Pessoa</h1>
+      </div>
+      <div class="col-12 p-fluid">
+        <label>Nome</label>
+        <input type="text" pInputText ><!--appCampoColorido-->
+      </div>
+
+      <div class="col-10 p-fluid">
+        
+        <label>Logradouro</label>
+        <input type="text" pInputText name="logradouro" 
+        ngModel #logradouro="ngModel"
+        required minlength="5" ><!--appCampoColorido-->
+
+        <app-message [control]="logradouro" error="required" 
+        text="Informe um Logradouro."></app-message>
+        <app-message [control]="logradouro" error="minlength" 
+        text="Informe um Logradouro Válido."></app-message>
+
+      </div>
+      <div class="col p-fluid">
+        <label>Número</label>
+        <input type="text" pInputText ><!--appCampoColorido-->
+      </div>
+      <div class="col-6 p-fluid">
+        <label>Complemento</label>
+        <input type="text" pInputText ><!--appCampoColorido-->
+      </div>
+      <div class="col-4 p-fluid">
+        <label>Bairro</label>
+        <input type="text" pInputText ><!--appCampoColorido-->
+      </div>
+      <div class="col-2 p-fluid">
+        <label>Cep</label>
+        <p-inputMask mask="99.999-999" ><!--appCampoColorido--></p-inputMask>
+      </div>
+      <div class="col-6 p-fluid">
+        <label>Cidade</label>
+        <input type="text" pInputText ><!--appCampoColorido-->
+      </div>
+      <div class="col-6 p-fluid">
+        <label>Estado</label>
+        <input type="text" pInputText ><!--appCampoColorido-->
+      </div>
+      <div class="col-12">
+        <button type="submit" pButton label="Salvar"></button>
+        <button type="button" pButton label="Novo" class="p-button-secondary"></button>
+        <a href="javascript:;">Voltar para Pesquisa</a>
+      </div>
+    </div>
+  </form>
+</div>

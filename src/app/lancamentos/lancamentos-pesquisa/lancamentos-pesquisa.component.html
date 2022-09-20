@@ -1,0 +1,30 @@
+<div class="container">
+  <form #lancamentoForm="ngForm" (ngSubmit)="pesquisa(lancamentoForm)">
+  <div class="grid">
+
+    <div class="col-2">
+      <h1>Lançamentos</h1>
+    </div>
+    <div class="col-12 p-fluid" >
+      <label>Descrição</label>
+      <input type="text" pInputText name="descricao" ngModel #descricao="ngModel">
+    </div>
+    <div class="col-6">
+      <label style="display: block">Vencimento</label>
+      <input type="text" pInputText style="width:150px">
+      <label>até</label>
+      <input type="text" pInputText style="width:150px">
+    </div>
+    <div class="col">
+      <button type="submit" pButton label="Pesquisa" style="margin: 30px 0 0 0"></button>
+      <a pButton label="Novo2" routerLink="/lancamentos/novo" style="margin: 0 0 0 15px"></a>
+    </div>
+  </div>
+  
+  <div class="grid">
+    <div class="col-12">
+      <app-lancamentos-grid [lancamento]="lancamentos"></app-lancamentos-grid>
+    </div>
+  </div>
+</form>
+</div>

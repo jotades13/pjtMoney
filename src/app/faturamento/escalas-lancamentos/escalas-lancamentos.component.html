@@ -1,0 +1,95 @@
+<div class="container">
+    <form>
+        <div class="card card-w-title">
+            <h2>{{competencia}}<br>{{descricao}}</h2>
+            <fieldset style="border:0">
+                <legend>Informações p/ os Plantôes</legend>
+                <div class="grid">
+                    <div class="col-12 md:col-6 lg:col-3 col">
+                        <label>Valor do Plantâo</label>
+                        <p-inputNumber [(ngModel)]=valorPlantao name="valorPlantao"  mode="decimal"
+                         [minFractionDigits]="2" [maxFractionDigits]="2" [disabled]="true">
+                        </p-inputNumber>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-3 col">
+                        <label>Plantões Horas</label>
+                        <input [(ngModel)]="horaPlantao" name="horaPlantao" type="text" size="10px" 
+                        pInputText disabled>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-2">
+                    <p-checkbox [(ngModel)]="captura" name="captura" label="Captura valores" ></p-checkbox>
+                   </div>         
+                    <div class="col-12 md:col-6 lg:col-1">
+                        <p-radioButton name="tipoL" value="P" label="Plantonista" [(ngModel)]="tipoLancamento">
+                        </p-radioButton>
+                        <p-radioButton name="tipoL" value="D" label='Diretor' [(ngModel)]="tipoLancamento">
+                        </p-radioButton>
+                        <p-radioButton name="tipoL" value="E" label='Extra' [(ngModel)]="tipoLancamento">
+                        </p-radioButton>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Informe os valores da Produção</legend>
+                <div class="grid " *ngIf="!captura">
+                    <div class="col-12 md:col-6 lg:col-2">
+                        <label>Num.CRM</label>
+                        <input type="text" size="10px" pInputText>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-2">
+                        <label>Plantões</label>
+                        <input type="text" size="10px" pInputText>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-3">
+                        <label>R$ Valor</label>
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-5 p-fluid">
+                        <label>Salve seus dados</label>
+                        <button pButton type="submit" label="Salvar" class="ui-button-success"
+                            style="margin:0 0 5px"></button>
+                    </div>
+                </div>
+
+                <div class="grid" *ngIf="captura">
+                    <div class="col-12 md:col-6 lg:col-9">
+                        <label>Cole aqui os Valores</label>
+                        <textarea [rows]="5" [cols]="100" pInputTextarea name="mmvalores"></textarea>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-3 p-fluid">
+                        <label>Importe seus Valores</label>
+                        <button pButton type="submit" label="Importe" class="ui-button-success"
+                            style="margin:0 0 5px"></button>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="form-actions">
+            </div>
+        </div>
+
+        <p-table [value]="escalaLancamentos" styleClass="p-datatable-sm" responsiveLayout="scroll" [paginator]="true" [rows]="5" [responsive]="true">
+            <ng-template pTemplate="header">
+              <tr>
+                <th *ngFor="let c of colunas">
+                  {{c.cabecalho}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-l>
+              <tr>
+                <td>{{l.crmuf}}</td>
+                <td>{{l.nomecooperado}}</td>
+                <td>{{l.plantoes|number:'1.2-2'}}</td>
+                <td>{{l.valor|currency:'BRL':true:'1.2-2'}}</td>
+                <td>{{l.pde==='P'?'Plantonista':l.pde==='D'?'Diretor':'Extra'}}</td>
+                <td>{{l.usuario}}</td>
+                <td class="col-acoes-content" >
+                  <button pButton icon="pi pi-pencil" pTooltip="Muda Usuário" tooltipPosition="top"></button>
+                  <button pButton icon="pi pi-trash" pTooltip="Muda Usuário" tooltipPosition="top"></button>
+                </td> 
+              </tr>
+            </ng-template>
+          </p-table>
+    </form>
+</div>

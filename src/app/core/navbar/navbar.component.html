@@ -1,0 +1,22 @@
+<nav class="navbar"> 
+  <div class="container">
+    <div class="grid">
+      <div class="col-12" style="text-align: left">
+        <a href="javascript:;" class="navbar-toggle" (click)="exibindomenu = !exibindomenu"><i class="pi pi-bars"></i></a>
+      </div>
+    </div>
+  </div>
+  <ul class="navbar-menu" [hidden]="!exibindomenu">
+    <li class="navbar-usuario">Jotahemmy Silva</li>
+    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/lancamentos">Lançamentos</a></li>
+    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/pessoas">Pessoas</a></li>
+    <li class="navbar-menuitem"><a>Faturamento</a></li>
+    <ol>
+      <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/geraproducao">Gera Produções - PF</a></li>
+      <li class="navbar-menuitem" routerLinkAvtive="ativo"><a routerLink="">Gera Produções - PJ</a></li>
+      <li class="navbar-menuitem" routerLinkAvtive="ativo"><a routerLink="">Gera NF - Emitidas</a></li>
+      <li class="navbar-menuitem" routerLinkAvtive="ativo"><a routerLink="">Gera NF - Recebidas</a></li>
+    </ol>
+    <li class="navbar-menuitem"><a href="#">Logout</a></li>
+  </ul>
+</nav>
